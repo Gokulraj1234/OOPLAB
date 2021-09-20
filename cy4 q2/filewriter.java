@@ -15,7 +15,6 @@ class ReadWrite
 			fwrite.write("This beautiful land is rightly called the paradise.\n");
 			fwrite.write("Blessed with natural beauty and ecological diversity.\n");
 			fwrite.write("Kerala has a lot to offer to tourists and travelers.");
-			//System.out.println("File write done\n");
 		    fwrite.close();
 			FileReader fread = new FileReader("writingfile.txt");
 			String str="";
@@ -25,7 +24,6 @@ class ReadWrite
               str+=(char)i;
             }
             System.out.println(str);
-			//System.out.println("\nFile read done");
             fread.close();
 
 		}
