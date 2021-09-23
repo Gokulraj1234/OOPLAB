@@ -1,17 +1,26 @@
 import java.io.*;
 import java.util.*;
 
-public class File 
+class File 
 {
-  public static void main(String[] args) throws Exception 
-  {
-     int i=0;
+  String fname;
 
-     FileInputStream file = new FileInputStream("Main.txt");
-     FileOutputStream evenFile = new FileOutputStream("EvenFile.txt");
-     FileOutputStream oddFile = new FileOutputStream("OddFile.txt");
+  void read()
+  {
+    Scanner sc=new Scanner(System.in);
+      System.out.println("Enter the filename");
+      fname=sc.next(); 
+  }
+  
+  void check() throws Exception
+  {
     
-     while((i=file.read())!=-1) 
+    FileInputStream file = new FileInputStream(fname);
+    FileOutputStream evenFile = new FileOutputStream("EvenFile.txt");
+    FileOutputStream oddFile = new FileOutputStream("OddFile.txt");
+
+    int i=0;
+    while((i=file.read())!=-1) 
      {
       if(i%2==0)
       {
@@ -20,10 +29,20 @@ public class File
       else
       oddFile.write(i);
      }
-    
-     file.close();
+      file.close();
      evenFile.close();
      oddFile.close();
+  }
+
+}
+ class Main 
+{
+  public static void main(String[] args) throws Exception
+  { 
+      File f=new File();
+      f.read();
+      f.check();
+     
 
       }
 
